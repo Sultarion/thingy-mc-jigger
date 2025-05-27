@@ -1,0 +1,33 @@
+const square = document.getElementById('square');
+const keysPressed = {};
+let positionx = 0;
+let positiony = 0;
+
+// Listen for keydown event
+document.addEventListener('keydown', (event) => {
+  keysPressed[event.key] = true;
+  console.log(`${event.key} is pressed`);
+});
+
+// Listen for keyup event
+document.addEventListener('keyup', (event) => {
+  delete keysPressed[event.key];
+  console.log(`${event.key} is released`);
+});
+
+// check if movement keys are pressed every 100 miliseconds
+setInterval(() => {
+  if (keysPressed['w']) {
+  positiony -= 4;
+  square.style.transform = `translateY(${positiony}px)`; 
+  } else if (keysPressed['s']) {
+  positiony += 4;
+  square.style.transform = `translateY(${positiony}px)`;
+  } else if (keysPressed['a']) {
+  positionx += 4;  
+  square.style.transform = `translateX(${positionx}px)`;
+  } else if (keysPressed['d']) {
+  positionx -= 4;
+  square.style.trasnform = `translatex(${positionx}px)` ;   
+  }
+}, 100);
