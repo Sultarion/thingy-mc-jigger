@@ -12,5 +12,6 @@
 
 <body>
   <div id="square"></div>
+  <script src="src/gamestarter.js"></script>
   <script src="src/script.js"></script>
 </body>

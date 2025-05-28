@@ -1,33 +1,38 @@
-const square = document.getElementById('square');
-const keysPressed = {};
-let positionx = 0;
-let positiony = 0;
+const player = document.getElementById('square');
+const speed = 5; // Movement speed
+const keys = { w: false, a: false, s: false, d: false }; // Track key states
+import {ispaused} from './gamestarter.js'
 
-// Listen for keydown event
-document.addEventListener('keydown', (event) => {
-  keysPressed[event.key] = true;
-  console.log(`${event.key} is pressed`);
-});
+let position = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
-// Listen for keyup event
-document.addEventListener('keyup', (event) => {
-  delete keysPressed[event.key];
-  console.log(`${event.key} is released`);
-});
+function updatePosition() {
+  if (ispaused === false && gameover == false){
+   if (keys.w) position.y -= speed;
+   if (keys.s) position.y += speed;
+   if (keys.a) position.x -= speed;
+   if (keys.d) position.x += speed;
 
-// check if movement keys are pressed every 100 miliseconds
-setInterval(() => {
-  if (keysPressed['w']) {
-  positiony -= 4;
-  square.style.transform = `translateY(${positiony}px)`; 
-  } else if (keysPressed['s']) {
-  positiony += 4;
-  square.style.transform = `translateY(${positiony}px)`;
-  } else if (keysPressed['a']) {
-  positionx += 4;  
-  square.style.transform = `translateX(${positionx}px)`;
-  } else if (keysPressed['d']) {
-  positionx -= 4;
-  square.style.transform = `translatex(${positionx}px)` ;   
+   //oob
+   position.x = Math.max(0, Math.min(window.innerWidth - 50, position.x));
+   position.y = Math.max(0, Math.min(window.innerHeight - 50, position.y));
+
+   player.style.transform = `translate(${position.x}px, ${position.y}px)`;
+   requestAnimationFrame(updatePosition);
   }
-}, 100);
+}
+
+//listener
+window.addEventListener('keydown', (e) => {
+  if (e.key === 'w') keys.w = true;
+  if (e.key === 'a') keys.a = true;
+  if (e.key === 's') keys.s = true;
+  if (e.key === 'd') keys.d = true;
+});
+
+window.addEventListener('keyup', (e) => {
+  if (e.key === 'w') keys.w = false;
+  if (e.key === 'a') keys.a = false;
+  if (e.key === 's') keys.s = false;
+  if (e.key === 'd') keys.d = false;
+});
+updatePosition();
