@@ -28,6 +28,6 @@ setInterval(() => {
   square.style.transform = `translateX(${positionx}px)`;
   } else if (keysPressed['d']) {
   positionx -= 4;
-  square.style.trasnform = `translatex(${positionx}px)` ;   
+  square.style.transform = `translatex(${positionx}px)` ;   
   }
 }, 100);

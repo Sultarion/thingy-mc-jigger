@@ -12,6 +12,5 @@
 
 <body>
   <div id="square"></div>
-  <button id="moveButton">Move Square</button>
-  <script src="src/test.js"></script>
+  <script src="src/script.js"></script>
 </body>
