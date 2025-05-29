@@ -20,3 +20,11 @@ body {
   left: 0;
 }
 
+.bigbadLong {
+  width: 20px;
+  height: 100vh;
+  background-color:red;
+  position: absolute;
+
+}
+

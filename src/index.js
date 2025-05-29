@@ -26,7 +26,7 @@ const keys = {
 	},
 	shift: () => {
 		// I don't even know how half of this fucking works anymore ruh...
-		speed = bspeed * 2
+		speed = bspeed * 2;
 	},
 };
 
@@ -56,8 +56,9 @@ window.addEventListener("keydown", (e) => {
 
 window.addEventListener("keyup", (e) => {
 	if (e.key in keys && e.key === 'shift') {
-		speed = bspeed
+		speed = bspeed;
+		alert("Itfuckingworks","rahhh");
 	}
 
-})
+});
 updatePosition();

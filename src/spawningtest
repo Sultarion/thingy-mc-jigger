@@ -1,0 +1,9 @@
+
+let spawntest = document.createElement('div');
+spawntest.id = "bigbad"
+spawntest.classListadd('bigbadLong');
+
+```
+howz do uh
+document.appendChild('spawntest') might be retarded idk
+```
