@@ -4,7 +4,8 @@ window.gameState = {
 };
 
 const player = document.getElementById("square");
-const speed = 5; // Movement speed
+const speed = bspeed; // Movement speed + modifiers
+const bspeed = 5 //base speed
 
 const keys = {
 	w: () => {
@@ -22,6 +23,10 @@ const keys = {
 	d: () => {
 		position.x += speed;
 		constrain(position);
+	},
+	shift: () => {
+		// I don't even know how half of this fucking works anymore ruh...
+		speed = bspeed * 2
 	},
 };
 
@@ -45,7 +50,14 @@ function updatePosition() {
 //listener
 window.addEventListener("keydown", (e) => {
 	if (e.key in keys) {
-		keys[e.key](); // do you understand what this even does
+		keys[e.key](); // do you understand what this even does | no fucking clue except for e.key, does it like do the shit in key array or am I stupid?
 	}
 });
+
+window.addEventListener("keyup", (e) => {
+	if (e.key in keys && e.key === 'shift') {
+		speed = bspeed
+	}
+
+})
 updatePosition();
