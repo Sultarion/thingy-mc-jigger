@@ -2,6 +2,7 @@ const player = document.getElementById('square');
 const speed = 5; // Movement speed
 const keys = { w: false, a: false, s: false, d: false }; // Track key states
 import {ispaused} from './gamestarter.js'
+import {gameover} from './gamestarter.js'
 
 let position = { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 
