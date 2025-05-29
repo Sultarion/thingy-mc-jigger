@@ -21,7 +21,7 @@ function updatePosition() {
    requestAnimationFrame(updatePosition);
   }
 }
-
+/a
 //listener
 window.addEventListener('keydown', (e) => {
   if (e.key === 'w') keys.w = true;
