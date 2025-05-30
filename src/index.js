@@ -4,8 +4,8 @@ window.gameState = {
 };
 
 const player = document.getElementById("square");
-const speed = bspeed; // Movement speed + modifiers
 const bspeed = 5 //base speed
+let speed = bspeed; // Movement speed + modifiers
 
 const keys = {
 	w: () => {
